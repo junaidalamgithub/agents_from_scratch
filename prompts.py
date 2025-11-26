@@ -47,4 +47,4 @@ Action: {next action if needed}
 Final Answer: {your complete answer to the question}
 
 """
-INSTRUCTION_PROMPT = SYSTEM_PROMPT+PROCESS_PROMPT
+SYSTEM_PROMPT = SYSTEM_PROMPT+PROCESS_PROMPT

@@ -1,7 +1,7 @@
 import re
 from dotenv import load_dotenv
 from google import genai
-from prompts import INSTRUCTION_PROMPT
+from prompts import SYSTEM_PROMPT
 from tools import get_weather, calculate_sum
 load_dotenv()
 
@@ -10,7 +10,7 @@ tools_available = {"get_weather":get_weather, "calculate_sum":calculate_sum}
 class Agent:
     def __init__(self):
         self.llm = genai.Client()
-        self.system_prompt = INSTRUCTION_PROMPT
+        self.system_prompt =  SYSTEM_PROMPT
         self.messsages_store = []
         self.messsages_store.append({"role": "model", "parts": [{ "text": self.system_prompt }]})
         print("Agent initialized")
@@ -56,7 +56,7 @@ def extract_answer(message):
     return answer
 
 
-def agent_query(user_input, max_turns=10):
+def agent_query(user_input, max_turns=5):
     agent = Agent()
     i = 0
     
